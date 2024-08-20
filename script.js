@@ -3,7 +3,7 @@ let canvas = document.getElementById("container")
 let rowCount = 16
 let rows = []
 let playerCount = 16
-
+let randomRGB = 0
 
 for (let i = 0; i < rowCount; i++) {
     let row = document.createElement("div")
@@ -13,13 +13,30 @@ for (let i = 0; i < rowCount; i++) {
 
 rows = document.getElementsByClassName("rowCell")
 
+
 function initiateGrid(playerCount) {
     for (let index = 0; index < rows.length; index++) {
         for (let counter = 0; counter < playerCount; counter++) {
             let col = document.createElement("div")
             col.className = "colCell"
             col.onmouseover = function(e) {
-                this.classList.add("paintCell")
+                switch(randomRGB = Math.floor(Math.random() * 3)) {
+                    case 0:
+                        this.classList.remove("paintBlue")
+                        this.classList.remove("paintGreen")
+                        this.classList.add("paintRed")
+                        break;
+                    case 1:
+                        this.classList.remove("paintBlue")
+                        this.classList.remove("paintRed")
+                        this.classList.add("paintGreen")
+                        break;
+                    case 2:
+                        this.classList.remove("paintGreen")
+                        this.classList.remove("paintRed")
+                        this.classList.add("paintBlue")
+                        break;
+                }
             }
             rows[index].appendChild(col)
         }

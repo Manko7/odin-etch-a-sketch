@@ -42,6 +42,14 @@ body {
     background-color: red;
 }
 
-.paintCell {
+.paintRed {
+    background-color: red;
+}
+
+.paintGreen {
+    background-color: limegreen;
+}
+
+.paintBlue {
     background-color: blue;
 }
